@@ -36,7 +36,8 @@ jobs:
         with:
           python-version: '3.12'
           cache: pip
-      - run: python -m pip install --only-binary=:all: -r requirements.txt
+      - run: |
+          python -m pip install --only-binary=:all: -r requirements.txt
       - run: python -m unittest discover -s tests -v
       - run: python technical_engine.py --symbol "$SYMBOL" --fetch-days "$FETCH_DAYS"
       - uses: actions/upload-artifact@v4
