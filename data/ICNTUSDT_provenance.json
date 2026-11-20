@@ -1,0 +1,13 @@
+{
+  "venue": "Bybit",
+  "market": "spot",
+  "symbol": "ICNTUSDT",
+  "interval_minutes": 15,
+  "rows": 17280,
+  "first_utc": "2026-05-24T11:45:00+00:00",
+  "last_utc": "2026-11-20T11:30:00+00:00",
+  "duplicates": 0,
+  "missing_intervals": 0,
+  "sha256": "4685f7b34380de50af4143c5803321158a70d7015adb2f9c82025e734db81f8d",
+  "provenance": "User-uploaded CSV downloaded through the public Bybit API using supplied Termux downloader; origin not independently authenticated."
+}

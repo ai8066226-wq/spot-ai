@@ -1,0 +1,1991 @@
+{
+  "version": "0.3",
+  "data_rows": 17180,
+  "risk": {
+    "fee": 0.001,
+    "slippage": 0.0005,
+    "risk_per_trade": 0.005,
+    "max_allocation": 0.25,
+    "stop_atr": 1.5,
+    "reward_risk": 2.5,
+    "min_stop": 0.004,
+    "max_stop": 0.04,
+    "max_hold": 16,
+    "daily_loss": 0.02,
+    "max_drawdown": 0.1,
+    "cooldown": 2
+  },
+  "data_source": "csv",
+  "synthetic": false,
+  "final_start_timestamp": 1792082700000,
+  "final_end_timestamp": 1795174200000,
+  "final_start_index": 13744,
+  "candidate_count": 24,
+  "model_family": "CASH",
+  "selected_rule": null,
+  "rankings": [
+    {
+      "name": "price_volume/boosting/0.55",
+      "group": "price_volume",
+      "mode": "boosting",
+      "threshold": 0.55,
+      "folds": [
+        {
+          "fold": 0,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.2085916357652576
+        },
+        {
+          "fold": 1,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.20825112385683567
+        },
+        {
+          "fold": 2,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.2302272281577104
+        }
+      ],
+      "score": 0.0,
+      "accepted": false,
+      "reason": "requires >=5 trades, positive return, PF>=1.5, payoff>=1.5, drawdown<=10% and no halt in every fold"
+    },
+    {
+      "name": "price_volume/boosting/0.65",
+      "group": "price_volume",
+      "mode": "boosting",
+      "threshold": 0.65,
+      "folds": [
+        {
+          "fold": 0,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.2085916357652576
+        },
+        {
+          "fold": 1,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.20825112385683567
+        },
+        {
+          "fold": 2,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.2302272281577104
+        }
+      ],
+      "score": 0.0,
+      "accepted": false,
+      "reason": "requires >=5 trades, positive return, PF>=1.5, payoff>=1.5, drawdown<=10% and no halt in every fold"
+    },
+    {
+      "name": "price_volume/boosting/0.75",
+      "group": "price_volume",
+      "mode": "boosting",
+      "threshold": 0.75,
+      "folds": [
+        {
+          "fold": 0,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.2085916357652576
+        },
+        {
+          "fold": 1,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.20825112385683567
+        },
+        {
+          "fold": 2,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.2302272281577104
+        }
+      ],
+      "score": 0.0,
+      "accepted": false,
+      "reason": "requires >=5 trades, positive return, PF>=1.5, payoff>=1.5, drawdown<=10% and no halt in every fold"
+    },
+    {
+      "name": "price_volume/ensemble/0.55",
+      "group": "price_volume",
+      "mode": "ensemble",
+      "threshold": 0.55,
+      "folds": [
+        {
+          "fold": 0,
+          "metrics": {
+            "net_return": -0.009376634221887281,
+            "max_drawdown": 0.009723501666533685,
+            "trades": 2,
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "total_profit": 0.0,
+            "total_loss": 0.009376634221887323,
+            "average_win": 0.0,
+            "average_loss": 0.03984747590022751,
+            "payoff_ratio": null,
+            "expectancy_per_trade": -0.004688317110943661,
+            "exposure": 0.006748709805478364,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.20935936479769118
+        },
+        {
+          "fold": 1,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.20834811040807616
+        },
+        {
+          "fold": 2,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.2302628564507872
+        }
+      ],
+      "score": 0.0,
+      "accepted": false,
+      "reason": "requires >=5 trades, positive return, PF>=1.5, payoff>=1.5, drawdown<=10% and no halt in every fold"
+    },
+    {
+      "name": "price_volume/ensemble/0.65",
+      "group": "price_volume",
+      "mode": "ensemble",
+      "threshold": 0.65,
+      "folds": [
+        {
+          "fold": 0,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.20935936479769118
+        },
+        {
+          "fold": 1,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.20834811040807616
+        },
+        {
+          "fold": 2,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.2302628564507872
+        }
+      ],
+      "score": 0.0,
+      "accepted": false,
+      "reason": "requires >=5 trades, positive return, PF>=1.5, payoff>=1.5, drawdown<=10% and no halt in every fold"
+    },
+    {
+      "name": "price_volume/ensemble/0.75",
+      "group": "price_volume",
+      "mode": "ensemble",
+      "threshold": 0.75,
+      "folds": [
+        {
+          "fold": 0,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.20935936479769118
+        },
+        {
+          "fold": 1,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.20834811040807616
+        },
+        {
+          "fold": 2,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.2302628564507872
+        }
+      ],
+      "score": 0.0,
+      "accepted": false,
+      "reason": "requires >=5 trades, positive return, PF>=1.5, payoff>=1.5, drawdown<=10% and no halt in every fold"
+    },
+    {
+      "name": "trend/boosting/0.55",
+      "group": "trend",
+      "mode": "boosting",
+      "threshold": 0.55,
+      "folds": [
+        {
+          "fold": 0,
+          "metrics": {
+            "net_return": -0.0050000000000000044,
+            "max_drawdown": 0.007739489939817434,
+            "trades": 1,
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "total_profit": 0.0,
+            "total_loss": 0.0050000000000000044,
+            "average_win": 0.0,
+            "average_loss": 0.042397122877122814,
+            "payoff_ratio": null,
+            "expectancy_per_trade": -0.0050000000000000044,
+            "exposure": 0.001984914648670107,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.21140093866967347
+        },
+        {
+          "fold": 1,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.20847587654268587
+        },
+        {
+          "fold": 2,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.23015205464995817
+        }
+      ],
+      "score": 0.0,
+      "accepted": false,
+      "reason": "requires >=5 trades, positive return, PF>=1.5, payoff>=1.5, drawdown<=10% and no halt in every fold"
+    },
+    {
+      "name": "trend/boosting/0.65",
+      "group": "trend",
+      "mode": "boosting",
+      "threshold": 0.65,
+      "folds": [
+        {
+          "fold": 0,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.21140093866967347
+        },
+        {
+          "fold": 1,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.20847587654268587
+        },
+        {
+          "fold": 2,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.23015205464995817
+        }
+      ],
+      "score": 0.0,
+      "accepted": false,
+      "reason": "requires >=5 trades, positive return, PF>=1.5, payoff>=1.5, drawdown<=10% and no halt in every fold"
+    },
+    {
+      "name": "trend/boosting/0.75",
+      "group": "trend",
+      "mode": "boosting",
+      "threshold": 0.75,
+      "folds": [
+        {
+          "fold": 0,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.21140093866967347
+        },
+        {
+          "fold": 1,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.20847587654268587
+        },
+        {
+          "fold": 2,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.23015205464995817
+        }
+      ],
+      "score": 0.0,
+      "accepted": false,
+      "reason": "requires >=5 trades, positive return, PF>=1.5, payoff>=1.5, drawdown<=10% and no halt in every fold"
+    },
+    {
+      "name": "trend/ensemble/0.55",
+      "group": "trend",
+      "mode": "ensemble",
+      "threshold": 0.55,
+      "folds": [
+        {
+          "fold": 0,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.21029341548065775
+        },
+        {
+          "fold": 1,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.20848473971774253
+        },
+        {
+          "fold": 2,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.2300389710235659
+        }
+      ],
+      "score": 0.0,
+      "accepted": false,
+      "reason": "requires >=5 trades, positive return, PF>=1.5, payoff>=1.5, drawdown<=10% and no halt in every fold"
+    },
+    {
+      "name": "trend/ensemble/0.65",
+      "group": "trend",
+      "mode": "ensemble",
+      "threshold": 0.65,
+      "folds": [
+        {
+          "fold": 0,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.21029341548065775
+        },
+        {
+          "fold": 1,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.20848473971774253
+        },
+        {
+          "fold": 2,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.2300389710235659
+        }
+      ],
+      "score": 0.0,
+      "accepted": false,
+      "reason": "requires >=5 trades, positive return, PF>=1.5, payoff>=1.5, drawdown<=10% and no halt in every fold"
+    },
+    {
+      "name": "trend/ensemble/0.75",
+      "group": "trend",
+      "mode": "ensemble",
+      "threshold": 0.75,
+      "folds": [
+        {
+          "fold": 0,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.21029341548065775
+        },
+        {
+          "fold": 1,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.20848473971774253
+        },
+        {
+          "fold": 2,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.2300389710235659
+        }
+      ],
+      "score": 0.0,
+      "accepted": false,
+      "reason": "requires >=5 trades, positive return, PF>=1.5, payoff>=1.5, drawdown<=10% and no halt in every fold"
+    },
+    {
+      "name": "momentum/boosting/0.55",
+      "group": "momentum",
+      "mode": "boosting",
+      "threshold": 0.55,
+      "folds": [
+        {
+          "fold": 0,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.210444188453105
+        },
+        {
+          "fold": 1,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.20808355806697207
+        },
+        {
+          "fold": 2,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.23002316336657266
+        }
+      ],
+      "score": 0.0,
+      "accepted": false,
+      "reason": "requires >=5 trades, positive return, PF>=1.5, payoff>=1.5, drawdown<=10% and no halt in every fold"
+    },
+    {
+      "name": "momentum/boosting/0.65",
+      "group": "momentum",
+      "mode": "boosting",
+      "threshold": 0.65,
+      "folds": [
+        {
+          "fold": 0,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.210444188453105
+        },
+        {
+          "fold": 1,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.20808355806697207
+        },
+        {
+          "fold": 2,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.23002316336657266
+        }
+      ],
+      "score": 0.0,
+      "accepted": false,
+      "reason": "requires >=5 trades, positive return, PF>=1.5, payoff>=1.5, drawdown<=10% and no halt in every fold"
+    },
+    {
+      "name": "momentum/boosting/0.75",
+      "group": "momentum",
+      "mode": "boosting",
+      "threshold": 0.75,
+      "folds": [
+        {
+          "fold": 0,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.210444188453105
+        },
+        {
+          "fold": 1,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.20808355806697207
+        },
+        {
+          "fold": 2,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.23002316336657266
+        }
+      ],
+      "score": 0.0,
+      "accepted": false,
+      "reason": "requires >=5 trades, positive return, PF>=1.5, payoff>=1.5, drawdown<=10% and no halt in every fold"
+    },
+    {
+      "name": "momentum/ensemble/0.55",
+      "group": "momentum",
+      "mode": "ensemble",
+      "threshold": 0.55,
+      "folds": [
+        {
+          "fold": 0,
+          "metrics": {
+            "net_return": -0.009376634221887281,
+            "max_drawdown": 0.009723501666533685,
+            "trades": 2,
+            "win_rate": 0.0,
+            "profit_factor": 0.0,
+            "total_profit": 0.0,
+            "total_loss": 0.009376634221887323,
+            "average_win": 0.0,
+            "average_loss": 0.03984747590022751,
+            "payoff_ratio": null,
+            "expectancy_per_trade": -0.004688317110943661,
+            "exposure": 0.006748709805478364,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.21035448195915885
+        },
+        {
+          "fold": 1,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.2082896461129429
+        },
+        {
+          "fold": 2,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.2299928577269431
+        }
+      ],
+      "score": 0.0,
+      "accepted": false,
+      "reason": "requires >=5 trades, positive return, PF>=1.5, payoff>=1.5, drawdown<=10% and no halt in every fold"
+    },
+    {
+      "name": "momentum/ensemble/0.65",
+      "group": "momentum",
+      "mode": "ensemble",
+      "threshold": 0.65,
+      "folds": [
+        {
+          "fold": 0,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.21035448195915885
+        },
+        {
+          "fold": 1,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.2082896461129429
+        },
+        {
+          "fold": 2,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.2299928577269431
+        }
+      ],
+      "score": 0.0,
+      "accepted": false,
+      "reason": "requires >=5 trades, positive return, PF>=1.5, payoff>=1.5, drawdown<=10% and no halt in every fold"
+    },
+    {
+      "name": "momentum/ensemble/0.75",
+      "group": "momentum",
+      "mode": "ensemble",
+      "threshold": 0.75,
+      "folds": [
+        {
+          "fold": 0,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.21035448195915885
+        },
+        {
+          "fold": 1,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.2082896461129429
+        },
+        {
+          "fold": 2,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.2299928577269431
+        }
+      ],
+      "score": 0.0,
+      "accepted": false,
+      "reason": "requires >=5 trades, positive return, PF>=1.5, payoff>=1.5, drawdown<=10% and no halt in every fold"
+    },
+    {
+      "name": "all/boosting/0.55",
+      "group": "all",
+      "mode": "boosting",
+      "threshold": 0.55,
+      "folds": [
+        {
+          "fold": 0,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.20862989567669948
+        },
+        {
+          "fold": 1,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.20860658410984423
+        },
+        {
+          "fold": 2,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.2300636349417045
+        }
+      ],
+      "score": 0.0,
+      "accepted": false,
+      "reason": "requires >=5 trades, positive return, PF>=1.5, payoff>=1.5, drawdown<=10% and no halt in every fold"
+    },
+    {
+      "name": "all/boosting/0.65",
+      "group": "all",
+      "mode": "boosting",
+      "threshold": 0.65,
+      "folds": [
+        {
+          "fold": 0,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.20862989567669948
+        },
+        {
+          "fold": 1,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.20860658410984423
+        },
+        {
+          "fold": 2,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.2300636349417045
+        }
+      ],
+      "score": 0.0,
+      "accepted": false,
+      "reason": "requires >=5 trades, positive return, PF>=1.5, payoff>=1.5, drawdown<=10% and no halt in every fold"
+    },
+    {
+      "name": "all/boosting/0.75",
+      "group": "all",
+      "mode": "boosting",
+      "threshold": 0.75,
+      "folds": [
+        {
+          "fold": 0,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.20862989567669948
+        },
+        {
+          "fold": 1,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.20860658410984423
+        },
+        {
+          "fold": 2,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.2300636349417045
+        }
+      ],
+      "score": 0.0,
+      "accepted": false,
+      "reason": "requires >=5 trades, positive return, PF>=1.5, payoff>=1.5, drawdown<=10% and no halt in every fold"
+    },
+    {
+      "name": "all/ensemble/0.55",
+      "group": "all",
+      "mode": "ensemble",
+      "threshold": 0.55,
+      "folds": [
+        {
+          "fold": 0,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.20921976145555313
+        },
+        {
+          "fold": 1,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.20852062392166776
+        },
+        {
+          "fold": 2,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.23012676272961222
+        }
+      ],
+      "score": 0.0,
+      "accepted": false,
+      "reason": "requires >=5 trades, positive return, PF>=1.5, payoff>=1.5, drawdown<=10% and no halt in every fold"
+    },
+    {
+      "name": "all/ensemble/0.65",
+      "group": "all",
+      "mode": "ensemble",
+      "threshold": 0.65,
+      "folds": [
+        {
+          "fold": 0,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.20921976145555313
+        },
+        {
+          "fold": 1,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.20852062392166776
+        },
+        {
+          "fold": 2,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.23012676272961222
+        }
+      ],
+      "score": 0.0,
+      "accepted": false,
+      "reason": "requires >=5 trades, positive return, PF>=1.5, payoff>=1.5, drawdown<=10% and no halt in every fold"
+    },
+    {
+      "name": "all/ensemble/0.75",
+      "group": "all",
+      "mode": "ensemble",
+      "threshold": 0.75,
+      "folds": [
+        {
+          "fold": 0,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.20921976145555313
+        },
+        {
+          "fold": 1,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.20852062392166776
+        },
+        {
+          "fold": 2,
+          "metrics": {
+            "net_return": 0.0,
+            "max_drawdown": 0.0,
+            "trades": 0,
+            "win_rate": 0.0,
+            "profit_factor": null,
+            "total_profit": 0.0,
+            "total_loss": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": null,
+            "expectancy_per_trade": 0.0,
+            "exposure": 0.0,
+            "drawdown_halt": false
+          },
+          "brier_score": 0.23012676272961222
+        }
+      ],
+      "score": 0.0,
+      "accepted": false,
+      "reason": "requires >=5 trades, positive return, PF>=1.5, payoff>=1.5, drawdown<=10% and no halt in every fold"
+    }
+  ],
+  "folds_audit": [
+    {
+      "fold": 0,
+      "group": "price_volume",
+      "columns": [
+        "return",
+        "range",
+        "upper_wick",
+        "lower_wick",
+        "volume_ratio",
+        "volume_change"
+      ],
+      "train_rows": 4621,
+      "calibration_rows": 1529,
+      "train_last": 4620,
+      "calibration_first": 4638,
+      "calibration_last": 6166,
+      "evaluation_first": 6184
+    },
+    {
+      "fold": 0,
+      "group": "trend",
+      "columns": [
+        "return",
+        "range",
+        "upper_wick",
+        "lower_wick",
+        "volume_ratio",
+        "volume_change",
+        "ema_10",
+        "ema_20",
+        "ema_50",
+        "macd",
+        "momentum_12",
+        "momentum_48"
+      ],
+      "train_rows": 4621,
+      "calibration_rows": 1529,
+      "train_last": 4620,
+      "calibration_first": 4638,
+      "calibration_last": 6166,
+      "evaluation_first": 6184
+    },
+    {
+      "fold": 0,
+      "group": "momentum",
+      "columns": [
+        "return",
+        "range",
+        "upper_wick",
+        "lower_wick",
+        "volume_ratio",
+        "volume_change",
+        "rsi_7",
+        "rsi_14",
+        "rsi_28",
+        "momentum_3"
+      ],
+      "train_rows": 4621,
+      "calibration_rows": 1529,
+      "train_last": 4620,
+      "calibration_first": 4638,
+      "calibration_last": 6166,
+      "evaluation_first": 6184
+    },
+    {
+      "fold": 0,
+      "group": "all",
+      "columns": [
+        "return",
+        "range",
+        "volume_ratio",
+        "rsi_7",
+        "rsi_14",
+        "rsi_28",
+        "macd",
+        "atr",
+        "momentum_3",
+        "volatility_3",
+        "momentum_12",
+        "volatility_12",
+        "momentum_48",
+        "volatility_48",
+        "upper_wick",
+        "lower_wick",
+        "volume_change"
+      ],
+      "train_rows": 4621,
+      "calibration_rows": 1529,
+      "train_last": 4620,
+      "calibration_first": 4638,
+      "calibration_last": 6166,
+      "evaluation_first": 6184
+    },
+    {
+      "fold": 1,
+      "group": "price_volume",
+      "columns": [
+        "return",
+        "range",
+        "upper_wick",
+        "lower_wick",
+        "volume_ratio",
+        "volume_change"
+      ],
+      "train_rows": 6511,
+      "calibration_rows": 2159,
+      "train_last": 6510,
+      "calibration_first": 6528,
+      "calibration_last": 8686,
+      "evaluation_first": 8704
+    },
+    {
+      "fold": 1,
+      "group": "trend",
+      "columns": [
+        "return",
+        "range",
+        "upper_wick",
+        "lower_wick",
+        "volume_ratio",
+        "volume_change",
+        "ema_10",
+        "ema_20",
+        "ema_50",
+        "macd",
+        "momentum_12",
+        "momentum_48"
+      ],
+      "train_rows": 6511,
+      "calibration_rows": 2159,
+      "train_last": 6510,
+      "calibration_first": 6528,
+      "calibration_last": 8686,
+      "evaluation_first": 8704
+    },
+    {
+      "fold": 1,
+      "group": "momentum",
+      "columns": [
+        "return",
+        "range",
+        "upper_wick",
+        "lower_wick",
+        "volume_ratio",
+        "volume_change",
+        "rsi_7",
+        "rsi_14",
+        "rsi_28",
+        "momentum_3"
+      ],
+      "train_rows": 6511,
+      "calibration_rows": 2159,
+      "train_last": 6510,
+      "calibration_first": 6528,
+      "calibration_last": 8686,
+      "evaluation_first": 8704
+    },
+    {
+      "fold": 1,
+      "group": "all",
+      "columns": [
+        "return",
+        "range",
+        "volume_ratio",
+        "rsi_7",
+        "rsi_14",
+        "rsi_28",
+        "macd",
+        "atr",
+        "momentum_3",
+        "volatility_3",
+        "momentum_12",
+        "volatility_12",
+        "momentum_48",
+        "volatility_48",
+        "upper_wick",
+        "lower_wick",
+        "volume_change"
+      ],
+      "train_rows": 6511,
+      "calibration_rows": 2159,
+      "train_last": 6510,
+      "calibration_first": 6528,
+      "calibration_last": 8686,
+      "evaluation_first": 8704
+    },
+    {
+      "fold": 2,
+      "group": "price_volume",
+      "columns": [
+        "return",
+        "range",
+        "upper_wick",
+        "lower_wick",
+        "volume_ratio",
+        "volume_change"
+      ],
+      "train_rows": 8401,
+      "calibration_rows": 2789,
+      "train_last": 8400,
+      "calibration_first": 8418,
+      "calibration_last": 11206,
+      "evaluation_first": 11224
+    },
+    {
+      "fold": 2,
+      "group": "trend",
+      "columns": [
+        "return",
+        "range",
+        "upper_wick",
+        "lower_wick",
+        "volume_ratio",
+        "volume_change",
+        "ema_10",
+        "ema_20",
+        "ema_50",
+        "macd",
+        "momentum_12",
+        "momentum_48"
+      ],
+      "train_rows": 8401,
+      "calibration_rows": 2789,
+      "train_last": 8400,
+      "calibration_first": 8418,
+      "calibration_last": 11206,
+      "evaluation_first": 11224
+    },
+    {
+      "fold": 2,
+      "group": "momentum",
+      "columns": [
+        "return",
+        "range",
+        "upper_wick",
+        "lower_wick",
+        "volume_ratio",
+        "volume_change",
+        "rsi_7",
+        "rsi_14",
+        "rsi_28",
+        "momentum_3"
+      ],
+      "train_rows": 8401,
+      "calibration_rows": 2789,
+      "train_last": 8400,
+      "calibration_first": 8418,
+      "calibration_last": 11206,
+      "evaluation_first": 11224
+    },
+    {
+      "fold": 2,
+      "group": "all",
+      "columns": [
+        "return",
+        "range",
+        "volume_ratio",
+        "rsi_7",
+        "rsi_14",
+        "rsi_28",
+        "macd",
+        "atr",
+        "momentum_3",
+        "volatility_3",
+        "momentum_12",
+        "volatility_12",
+        "momentum_48",
+        "volatility_48",
+        "upper_wick",
+        "lower_wick",
+        "volume_change"
+      ],
+      "train_rows": 8401,
+      "calibration_rows": 2789,
+      "train_last": 8400,
+      "calibration_first": 8418,
+      "calibration_last": 11206,
+      "evaluation_first": 11224
+    }
+  ],
+  "model_final": {
+    "net_return": 0.0,
+    "max_drawdown": 0.0,
+    "trades": 0,
+    "win_rate": 0.0,
+    "profit_factor": null,
+    "total_profit": 0.0,
+    "total_loss": 0.0,
+    "average_win": 0.0,
+    "average_loss": 0.0,
+    "payoff_ratio": null,
+    "expectancy_per_trade": 0.0,
+    "exposure": 0.0,
+    "drawdown_halt": false
+  },
+  "model_approved": false,
+  "status": "REJECTED_KEEP_CASH",
+  "notes": [
+    "No guarantee of profit or maximum loss.",
+    "OHLC ambiguity resolves stop before target; gaps can exceed risk budget.",
+    "Three walk-forward windows select candidates; final 20% never selects or tunes candidates.",
+    "Reusing the same final time range in subsequent design changes invalidates independence.",
+    "Bootstrap is conditional, not a formal correction for multiple testing.",
+    "No exchange precision, depth or minimum-order modeling.",
+    "All thresholds and risk budgets are research defaults.",
+    "CSV symbol and venue are user-declared, not independently verified."
+  ],
+  "buy_hold_final": {
+    "net_return": 2.5219914480862187,
+    "allocation": 1.0
+  },
+  "cash_final": {
+    "net_return": 0.0,
+    "max_drawdown": 0.0,
+    "trades": 0,
+    "win_rate": 0.0,
+    "profit_factor": null,
+    "total_profit": 0.0,
+    "total_loss": 0.0,
+    "average_win": 0.0,
+    "average_loss": 0.0,
+    "payoff_ratio": null,
+    "expectancy_per_trade": 0.0,
+    "exposure": 0.0,
+    "drawdown_halt": false
+  },
+  "symbol": "ICNTUSDT",
+  "interval_minutes": 15,
+  "source_verified": false,
+  "approval_scope": "Research filter only. No authorization for live trading."
+}
