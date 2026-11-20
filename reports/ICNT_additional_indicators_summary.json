@@ -1,0 +1,591 @@
+{
+  "version": "technical-engine-1.1",
+  "symbol": "ICNTUSDT",
+  "status": "NO_QUALIFIED_STRATEGY",
+  "rules": {
+    "trend_pullback": "EMA50 > EMA200, ADX >= 25, price reclaims EMA20 after pullback, RSI 45..70",
+    "range_breakout": "Close crosses previous 20-bar high, EMA50 > EMA200, volume >= 1.5x previous 20-bar mean",
+    "mean_reversion": "ADX < 20, price reclaims lower Bollinger band (20,2), RSI < 45",
+    "macd_momentum": "DIF crosses above DEA (12,26,9), EMA50 > EMA200, volume >= previous 20-bar mean",
+    "volatility_breakout": "Close crosses previous 20-bar high after prior Bollinger width <= prior rolling 100-bar 20th percentile, volume >= 1.5x mean",
+    "supertrend_flip": "Supertrend(10,3) flips up, close > EMA200, volume ratio >=1",
+    "cci_recovery": "CCI20 crosses -100 upwards, not downtrend, volume ratio >=1",
+    "mfi_recovery": "MFI14 crosses 20 upwards, not downtrend, volume ratio >=1",
+    "obv_breakout": "OBV exceeds previous 20-bar maximum, close > EMA50 > EMA200, volume ratio >=1"
+  },
+  "risk": {
+    "fee": 0.001,
+    "slippage": 0.0005,
+    "risk_per_trade": 0.005,
+    "max_allocation": 0.25,
+    "stop_atr": 1.5,
+    "reward_risk": 2.5,
+    "min_stop": 0.004,
+    "max_stop": 0.04,
+    "max_hold": 16,
+    "daily_loss": 0.02,
+    "max_drawdown": 0.1,
+    "cooldown": 2
+  },
+  "notes": [
+    "Rules are research hypotheses, not best-strategy claims.",
+    "Development history reused; obtain fresh future paper results.",
+    "Final 20% excluded from indicator computation and selection unless candidate qualifies.",
+    "Single position; next-open execution, conservative same-bar stop priority, close-updated trailing effective next candle.",
+    "Fees 0.1% and slippage 0.05% per side; no order book, exchange precision or minimum order model.",
+    "No machine learning training or live orders in this version."
+  ],
+  "best_per_strategy": [
+    {
+      "strategy": "trend_pullback",
+      "settings": {
+        "initial_stop": 0.01,
+        "take_profit": 0.06,
+        "trailing_mode": "atr",
+        "trailing_distance": 1.5,
+        "activation_gain": 0.01
+      },
+      "folds": [
+        {
+          "net_return": -0.010328669337942742,
+          "max_drawdown": 0.010328669337942742,
+          "trades": 4,
+          "win_rate": 0.0,
+          "profit_factor": 0.0,
+          "total_profit": 0.0,
+          "total_loss": 0.010328669337942603,
+          "average_win": 0.0,
+          "average_loss": 0.010367253194046924,
+          "payoff_ratio": null,
+          "expectancy_per_trade": -0.0025821673344856508,
+          "exposure": 0.003216726980297547,
+          "drawdown_halt": false
+        },
+        {
+          "net_return": 0.005797433800230456,
+          "max_drawdown": 0.014530118970508599,
+          "trades": 6,
+          "win_rate": 0.3333333333333333,
+          "profit_factor": 1.4604128680420916,
+          "total_profit": 0.018389249109137862,
+          "total_loss": 0.012591815308907461,
+          "average_win": 0.03676437307304193,
+          "average_loss": 0.012472032967032809,
+          "payoff_ratio": 2.9477450204165434,
+          "expectancy_per_trade": 0.0009662389667050667,
+          "exposure": 0.013263665594855305,
+          "drawdown_halt": false
+        },
+        {
+          "net_return": -0.00818600126600011,
+          "max_drawdown": 0.00907987403832089,
+          "trades": 16,
+          "win_rate": 0.5625,
+          "profit_factor": 0.5753411370729955,
+          "total_profit": 0.011090651079313674,
+          "total_loss": 0.01927665234531381,
+          "average_win": 0.004951198994070239,
+          "average_loss": 0.011039389141142608,
+          "payoff_ratio": 0.44850298605904343,
+          "expectancy_per_trade": -0.0005116250791250086,
+          "exposure": 0.0635048231511254,
+          "drawdown_halt": false
+        }
+      ],
+      "qualified": false,
+      "mean_return": -0.004239078934570799,
+      "worst_return": -0.010328669337942742,
+      "total_trades": 26
+    },
+    {
+      "strategy": "range_breakout",
+      "settings": {
+        "initial_stop": 0.01,
+        "take_profit": 0.02,
+        "trailing_mode": "atr",
+        "trailing_distance": 1.5,
+        "activation_gain": 0.01
+      },
+      "folds": [
+        {
+          "net_return": -0.004063073926641181,
+          "max_drawdown": 0.016229898946768295,
+          "trades": 9,
+          "win_rate": 0.3333333333333333,
+          "profit_factor": 0.7622245834585683,
+          "total_profit": 0.013024789847254942,
+          "total_loss": 0.0170878637738964,
+          "average_win": 0.017453056943057172,
+          "average_loss": 0.01140477430639845,
+          "payoff_ratio": 1.5303290073233136,
+          "expectancy_per_trade": -0.0004514526585157176,
+          "exposure": 0.008041817450743867,
+          "drawdown_halt": false
+        },
+        {
+          "net_return": -0.007615928592677457,
+          "max_drawdown": 0.007860114631469406,
+          "trades": 6,
+          "win_rate": 0.3333333333333333,
+          "profit_factor": 0.2548385157679439,
+          "total_profit": 0.0026045789802900676,
+          "total_loss": 0.010220507572967497,
+          "average_win": 0.005244707325303144,
+          "average_loss": 0.01024987579915329,
+          "payoff_ratio": 0.5116849636106218,
+          "expectancy_per_trade": -0.0012693214321129048,
+          "exposure": 0.011254019292604502,
+          "drawdown_halt": false
+        },
+        {
+          "net_return": -0.011564650255631026,
+          "max_drawdown": 0.016893333257582355,
+          "trades": 10,
+          "win_rate": 0.3,
+          "profit_factor": 0.4673008011978025,
+          "total_profit": 0.010144881655876903,
+          "total_loss": 0.0217095319115079,
+          "average_win": 0.013664338849789334,
+          "average_loss": 0.012472032967032835,
+          "payoff_ratio": 1.0955983588167306,
+          "expectancy_per_trade": -0.0011564650255630998,
+          "exposure": 0.00964630225080386,
+          "drawdown_halt": false
+        }
+      ],
+      "qualified": false,
+      "mean_return": -0.007747884258316555,
+      "worst_return": -0.011564650255631026,
+      "total_trades": 25
+    },
+    {
+      "strategy": "mean_reversion",
+      "settings": {
+        "initial_stop": 0.02,
+        "take_profit": 0.02,
+        "trailing_mode": "atr",
+        "trailing_distance": 2.5,
+        "activation_gain": 0.01
+      },
+      "folds": [
+        {
+          "net_return": -0.0033079945041316616,
+          "max_drawdown": 0.01080039743815564,
+          "trades": 8,
+          "win_rate": 0.5,
+          "profit_factor": 0.7930110005238382,
+          "total_profit": 0.012673504573130961,
+          "total_loss": 0.01598149907726279,
+          "average_win": 0.014263038117143636,
+          "average_loss": 0.017913192590602877,
+          "payoff_ratio": 0.7962309367804105,
+          "expectancy_per_trade": -0.0004134993130164785,
+          "exposure": 0.04101326899879373,
+          "drawdown_halt": false
+        },
+        {
+          "net_return": -0.011083706979751917,
+          "max_drawdown": 0.014291303406346989,
+          "trades": 10,
+          "win_rate": 0.5,
+          "profit_factor": 0.45927565753895183,
+          "total_profit": 0.009414180963124213,
+          "total_loss": 0.020497887942876186,
+          "average_win": 0.008489063937900167,
+          "average_loss": 0.01843685983915149,
+          "payoff_ratio": 0.46043979354191666,
+          "expectancy_per_trade": -0.0011083706979751972,
+          "exposure": 0.0747588424437299,
+          "drawdown_halt": false
+        },
+        {
+          "net_return": 0.006680604678280355,
+          "max_drawdown": 0.0063411024956159245,
+          "trades": 7,
+          "win_rate": 0.7142857142857143,
+          "profit_factor": 1.6667541449966563,
+          "total_profit": 0.016700196949901824,
+          "total_loss": 0.010019592271621636,
+          "average_win": 0.015007475585258123,
+          "average_loss": 0.0224470629370628,
+          "payoff_ratio": 0.6685719030296376,
+          "expectancy_per_trade": 0.0009543720968971699,
+          "exposure": 0.03617363344051447,
+          "drawdown_halt": false
+        }
+      ],
+      "qualified": false,
+      "mean_return": -0.002570365601867741,
+      "worst_return": -0.011083706979751917,
+      "total_trades": 25
+    },
+    {
+      "strategy": "macd_momentum",
+      "settings": {
+        "initial_stop": 0.02,
+        "take_profit": 0.06,
+        "trailing_mode": "atr",
+        "trailing_distance": 2.5,
+        "activation_gain": 0.01
+      },
+      "folds": [
+        {
+          "net_return": 0.015299168018428677,
+          "max_drawdown": 0.0072241983883905014,
+          "trades": 2,
+          "win_rate": 1.0,
+          "profit_factor": null,
+          "total_profit": 0.015299168018428844,
+          "total_loss": 0.0,
+          "average_win": 0.03427067314683732,
+          "average_loss": 0.0,
+          "payoff_ratio": null,
+          "expectancy_per_trade": 0.007649584009214422,
+          "exposure": 0.015681544028950542,
+          "drawdown_halt": false
+        },
+        {
+          "net_return": 0.00970510322872542,
+          "max_drawdown": 0.006899744096021565,
+          "trades": 3,
+          "win_rate": 0.6666666666666666,
+          "profit_factor": 2.9165364945735703,
+          "total_profit": 0.014768979265630422,
+          "total_loss": 0.0050638760369051405,
+          "average_win": 0.03311777326124205,
+          "average_loss": 0.022447062937062834,
+          "payoff_ratio": 1.4753722281662327,
+          "expectancy_per_trade": 0.003235034409575094,
+          "exposure": 0.01527331189710611,
+          "drawdown_halt": false
+        },
+        {
+          "net_return": -0.0041058325001375184,
+          "max_drawdown": 0.009082238542714172,
+          "trades": 4,
+          "win_rate": 0.25,
+          "profit_factor": 0.6324087789302265,
+          "total_profit": 0.007063728318504242,
+          "total_loss": 0.011169560818641927,
+          "average_win": 0.03190871017971801,
+          "average_loss": 0.016716959467365795,
+          "payoff_ratio": 1.9087627891907597,
+          "expectancy_per_trade": -0.0010264581250344212,
+          "exposure": 0.012861736334405145,
+          "drawdown_halt": false
+        }
+      ],
+      "qualified": false,
+      "mean_return": 0.006966146249005527,
+      "worst_return": -0.0041058325001375184,
+      "total_trades": 9
+    },
+    {
+      "strategy": "volatility_breakout",
+      "settings": {
+        "initial_stop": 0.02,
+        "take_profit": 0.04,
+        "trailing_mode": "atr",
+        "trailing_distance": 2.5,
+        "activation_gain": 0.01
+      },
+      "folds": [
+        {
+          "net_return": 0.024476146666320142,
+          "max_drawdown": 0.006504476663752312,
+          "trades": 6,
+          "win_rate": 0.8333333333333334,
+          "profit_factor": 17.074039089841026,
+          "total_profit": 0.02599885956564299,
+          "total_loss": 0.00152271289932282,
+          "average_win": 0.02313976740128172,
+          "average_loss": 0.006668031838342835,
+          "payoff_ratio": 3.4702544862222053,
+          "expectancy_per_trade": 0.004079357777720029,
+          "exposure": 0.044229995979091274,
+          "drawdown_halt": false
+        },
+        {
+          "net_return": 0.023622522563108372,
+          "max_drawdown": 0.009405373057403521,
+          "trades": 9,
+          "win_rate": 0.6666666666666666,
+          "profit_factor": 4.237849127805592,
+          "total_profit": 0.030918267865212123,
+          "total_loss": 0.007295745302103751,
+          "average_win": 0.02301940831276478,
+          "average_loss": 0.010911209028282853,
+          "payoff_ratio": 2.1097028068196995,
+          "expectancy_per_trade": 0.0026247247292342634,
+          "exposure": 0.05546623794212219,
+          "drawdown_halt": false
+        },
+        {
+          "net_return": -0.022152142998863034,
+          "max_drawdown": 0.024702931694925323,
+          "trades": 11,
+          "win_rate": 0.0,
+          "profit_factor": 0.0,
+          "total_profit": 0.0,
+          "total_loss": 0.022152142998862895,
+          "average_win": 0.0,
+          "average_loss": 0.009122489057581736,
+          "payoff_ratio": null,
+          "expectancy_per_trade": -0.0020138311817148088,
+          "exposure": 0.09686495176848875,
+          "drawdown_halt": false
+        }
+      ],
+      "qualified": false,
+      "mean_return": 0.00864884207685516,
+      "worst_return": -0.022152142998863034,
+      "total_trades": 26
+    },
+    {
+      "strategy": "supertrend_flip",
+      "settings": {
+        "initial_stop": 0.01,
+        "take_profit": 0.06,
+        "trailing_mode": "atr",
+        "trailing_distance": 2.5,
+        "activation_gain": 0.01
+      },
+      "folds": [
+        {
+          "net_return": -0.012594100539145892,
+          "max_drawdown": 0.026144267184100345,
+          "trades": 11,
+          "win_rate": 0.18181818181818182,
+          "profit_factor": 0.5323178616797276,
+          "total_profit": 0.014334660487261869,
+          "total_loss": 0.026928761026407955,
+          "average_win": 0.02875978602989869,
+          "average_loss": 0.011960552454367258,
+          "payoff_ratio": 2.4045533130367556,
+          "expectancy_per_trade": -0.0011449182308314624,
+          "exposure": 0.032569360675512665,
+          "drawdown_halt": false
+        },
+        {
+          "net_return": 0.004847183784761455,
+          "max_drawdown": 0.013173149627290992,
+          "trades": 5,
+          "win_rate": 0.6,
+          "profit_factor": 1.773680150806291,
+          "total_profit": 0.011112284136256534,
+          "total_loss": 0.00626510035149519,
+          "average_win": 0.014808734365984592,
+          "average_loss": 0.012472032967032795,
+          "payoff_ratio": 1.187355293650071,
+          "expectancy_per_trade": 0.0009694367569522688,
+          "exposure": 0.02009646302250804,
+          "drawdown_halt": false
+        },
+        {
+          "net_return": -0.008922005069612382,
+          "max_drawdown": 0.02177742393643345,
+          "trades": 25,
+          "win_rate": 0.28,
+          "profit_factor": 0.7713750001552621,
+          "total_profit": 0.030102620739776126,
+          "total_loss": 0.039024625809388536,
+          "average_win": 0.017221149582841457,
+          "average_loss": 0.00864680911179553,
+          "payoff_ratio": 1.9916190308109445,
+          "expectancy_per_trade": -0.0003568802027844964,
+          "exposure": 0.1290192926045016,
+          "drawdown_halt": false
+        }
+      ],
+      "qualified": false,
+      "mean_return": -0.005556307274665606,
+      "worst_return": -0.012594100539145892,
+      "total_trades": 41
+    },
+    {
+      "strategy": "cci_recovery",
+      "settings": {
+        "initial_stop": 0.01,
+        "take_profit": 0.02,
+        "trailing_mode": "atr",
+        "trailing_distance": 1.5,
+        "activation_gain": 0.01
+      },
+      "folds": [
+        {
+          "net_return": -0.0172798475510072,
+          "max_drawdown": 0.01975146333800315,
+          "trades": 17,
+          "win_rate": 0.29411764705882354,
+          "profit_factor": 0.46065899218448747,
+          "total_profit": 0.014758968894631741,
+          "total_loss": 0.032038816445638774,
+          "average_win": 0.011891906486314533,
+          "average_loss": 0.010739066513606161,
+          "payoff_ratio": 1.107350110109454,
+          "expectancy_per_trade": -0.0010164616206474724,
+          "exposure": 0.04905508644953759,
+          "drawdown_halt": false
+        },
+        {
+          "net_return": -0.02586691264468788,
+          "max_drawdown": 0.027065229020333925,
+          "trades": 20,
+          "win_rate": 0.25,
+          "profit_factor": 0.368844324756866,
+          "total_profit": 0.01511649867411785,
+          "total_loss": 0.04098341131880587,
+          "average_win": 0.012151629978363044,
+          "average_loss": 0.01101415323618968,
+          "payoff_ratio": 1.1032740981336548,
+          "expectancy_per_trade": -0.001293345632234401,
+          "exposure": 0.05667202572347267,
+          "drawdown_halt": false
+        },
+        {
+          "net_return": 0.012504302359345854,
+          "max_drawdown": 0.0121776015045586,
+          "trades": 25,
+          "win_rate": 0.52,
+          "profit_factor": 1.4000633089126235,
+          "total_profit": 0.04376011132951213,
+          "total_loss": 0.03125580897016647,
+          "average_win": 0.01332794910496128,
+          "average_loss": 0.010251945113254758,
+          "payoff_ratio": 1.3000410124835287,
+          "expectancy_per_trade": 0.0005001720943738264,
+          "exposure": 0.11495176848874598,
+          "drawdown_halt": false
+        }
+      ],
+      "qualified": false,
+      "mean_return": -0.010214152612116409,
+      "worst_return": -0.02586691264468788,
+      "total_trades": 62
+    },
+    {
+      "strategy": "mfi_recovery",
+      "settings": {
+        "initial_stop": 0.02,
+        "take_profit": 0.06,
+        "trailing_mode": "atr",
+        "trailing_distance": 1.5,
+        "activation_gain": 0.01
+      },
+      "folds": [
+        {
+          "net_return": -0.02178530266353984,
+          "max_drawdown": 0.028777380157129717,
+          "trades": 14,
+          "win_rate": 0.42857142857142855,
+          "profit_factor": 0.4297785790696307,
+          "total_profit": 0.016419685546119278,
+          "total_loss": 0.03820498820965909,
+          "average_win": 0.012428273255694344,
+          "average_loss": 0.021582485983518414,
+          "payoff_ratio": 0.5758499398625934,
+          "expectancy_per_trade": -0.001556093047395701,
+          "exposure": 0.10776035383996783,
+          "drawdown_halt": false
+        },
+        {
+          "net_return": -0.007377442130873879,
+          "max_drawdown": 0.02011619294516942,
+          "trades": 10,
+          "win_rate": 0.6,
+          "profit_factor": 0.6293868603216808,
+          "total_profit": 0.012528603664689053,
+          "total_loss": 0.0199060457955631,
+          "average_win": 0.009476375644176858,
+          "average_loss": 0.022447062937062737,
+          "payoff_ratio": 0.42216550426872324,
+          "expectancy_per_trade": -0.0007377442130874045,
+          "exposure": 0.10731511254019292,
+          "drawdown_halt": false
+        },
+        {
+          "net_return": 0.0021734229244336767,
+          "max_drawdown": 0.01772846677148565,
+          "trades": 10,
+          "win_rate": 0.6,
+          "profit_factor": 1.1088237866484962,
+          "total_profit": 0.02214537015554649,
+          "total_loss": 0.01997194723111284,
+          "average_win": 0.0166964119891131,
+          "average_loss": 0.02244706293706284,
+          "payoff_ratio": 0.7438127667716068,
+          "expectancy_per_trade": 0.0002173422924433649,
+          "exposure": 0.07033762057877814,
+          "drawdown_halt": false
+        }
+      ],
+      "qualified": false,
+      "mean_return": -0.008996440623326682,
+      "worst_return": -0.02178530266353984,
+      "total_trades": 34
+    },
+    {
+      "strategy": "obv_breakout",
+      "settings": {
+        "initial_stop": 0.02,
+        "take_profit": 0.04,
+        "trailing_mode": "atr",
+        "trailing_distance": 2.5,
+        "activation_gain": 0.01
+      },
+      "folds": [
+        {
+          "net_return": -0.01884186551400424,
+          "max_drawdown": 0.035013404985019037,
+          "trades": 21,
+          "win_rate": 0.2857142857142857,
+          "profit_factor": 0.6894326077843146,
+          "total_profit": 0.04182730319549979,
+          "total_loss": 0.06066916870950387,
+          "average_win": 0.03119699660870111,
+          "average_loss": 0.018078661712765873,
+          "payoff_ratio": 1.7256253313635488,
+          "expectancy_per_trade": -0.0008972316911430512,
+          "exposure": 0.0607157217531162,
+          "drawdown_halt": false
+        },
+        {
+          "net_return": 0.005092314796119268,
+          "max_drawdown": 0.015486837738935999,
+          "trades": 12,
+          "win_rate": 0.4166666666666667,
+          "profit_factor": 1.2993153620971236,
+          "total_profit": 0.02210552374216368,
+          "total_loss": 0.017013208946044384,
+          "average_win": 0.01975363714241471,
+          "average_loss": 0.010783555344328812,
+          "payoff_ratio": 1.8318297177195237,
+          "expectancy_per_trade": 0.00042435956634327465,
+          "exposure": 0.06270096463022508,
+          "drawdown_halt": false
+        },
+        {
+          "net_return": -0.03951394222860016,
+          "max_drawdown": 0.03983691168816639,
+          "trades": 35,
+          "win_rate": 0.2571428571428571,
+          "profit_factor": 0.5352197504807085,
+          "total_profit": 0.04550245480950171,
+          "total_loss": 0.08501639703810185,
+          "average_win": 0.02319117696028357,
+          "average_loss": 0.014924590293370465,
+          "payoff_ratio": 1.5538903584231145,
+          "expectancy_per_trade": -0.0011289697779600038,
+          "exposure": 0.18890675241157556,
+          "drawdown_halt": false
+        }
+      ],
+      "qualified": false,
+      "mean_return": -0.017754497648828377,
+      "worst_return": -0.03951394222860016,
+      "total_trades": 68
+    }
+  ],
+  "candidate_count": 108,
+  "final_rows_reserved": 3456
+}

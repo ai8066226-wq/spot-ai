@@ -15,7 +15,7 @@ class TechnicalEngineTests(unittest.TestCase):
         for name in s:np.testing.assert_array_equal(s[name][:800],t[name][:800])
     def test_registry_and_warmup(self):
         d=self.data();s=signals(d,indicators(d))
-        self.assertEqual(set(s),set(RULES));self.assertEqual(len(s),5);self.assertEqual(len(exits()),12)
+        self.assertEqual(set(s),set(RULES));self.assertEqual(len(s),9);self.assertEqual(len(exits()),12)
         for value in s.values():self.assertFalse(value[:199].any());self.assertEqual(value.dtype,bool)
     def test_prior_high_excludes_current(self):
         d=self.data();f=indicators(d)

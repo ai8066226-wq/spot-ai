@@ -56,4 +56,4 @@ trailing_lab.py ومهمة KDJ Trailing Exit Lab يختبران أهداف رب�
 
 ## Technical Strategy Engine (without KDJ)
 
-Five causal spot strategy families, regime/volume filters, 60 exit combinations, three validation windows and a reserved final test. Run **Actions → Technical Strategy Engine**, download the artifact and open `index.html`. Set `fetch_days=0` for stored data or `11..730` for public Bybit download. No exchange orders or machine-learning training. See [Arabic rules and limitations](TECHNICAL_ENGINE_AR.md).
+Nine causal spot strategy families, regime/volume filters, 108 exit combinations, three validation windows and a reserved final test. Run **Actions → Technical Strategy Engine**, download the artifact and open `index.html`. Set `fetch_days=0` for stored data or `11..730` for public Bybit download. No exchange orders or machine-learning training. See [Arabic rules and limitations](TECHNICAL_ENGINE_AR.md).

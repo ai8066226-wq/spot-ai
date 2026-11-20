@@ -10,6 +10,7 @@ import pandas as pd
 from engine import validate, fetch
 from execution import ExitSettings, simulate_trailing
 from research_v3 import Risk, passes
+import additional_indicators as extra
 
 RULES = {
  'trend_pullback': 'EMA50 > EMA200, ADX >= 25, price reclaims EMA20 after pullback, RSI 45..70',
@@ -18,6 +19,8 @@ RULES = {
  'macd_momentum': 'DIF crosses above DEA (12,26,9), EMA50 > EMA200, volume >= previous 20-bar mean',
  'volatility_breakout': 'Close crosses previous 20-bar high after prior Bollinger width <= prior rolling 100-bar 20th percentile, volume >= 1.5x mean',
 }
+
+RULES.update(extra.RULES)
 
 def cross(a,b):
     return (a>b)&(a.shift(1)<=b.shift(1))
@@ -43,7 +46,7 @@ def indicators(d):
     f['dif']=c.ewm(span=12,adjust=False).mean()-c.ewm(span=26,adjust=False).mean()
     f['dea']=f.dif.ewm(span=9,adjust=False).mean()
     f['regime']=np.select([(f.adx>=25)&(f.ema50>f.ema200),(f.adx>=25)&(f.ema50<f.ema200),f.adx<20],['uptrend','downtrend','range'],default='transition')
-    return f
+    return pd.concat([f,extra.indicators(d)],axis=1)
 
 def signals(d,f):
     trend=(f.regime=='uptrend'); liquid=f.volume_ratio>=1
@@ -55,6 +58,7 @@ def signals(d,f):
       'macd_momentum':trend&cross(f.dif,f.dea)&liquid,
       'volatility_breakout':f['squeeze']&cross(d.close,f.prior_high)&(f.volume_ratio>=1.5)&(f.regime!='downtrend'),
     }
+    rules.update(extra.signals(d,f,cross))
     return {name:(v&ready).fillna(False).to_numpy(dtype=bool) for name,v in rules.items()}
 
 def exits():
@@ -83,7 +87,7 @@ def run(csv,output,symbol='ICNTUSDT',interval=15):
             ranking.append(dict(strategy=name,settings=asdict(setting),folds=folds,qualified=all(passes(m) for m in folds),mean_return=float(np.mean([m['net_return'] for m in folds])),worst_return=float(min(m['net_return'] for m in folds)),total_trades=sum(m['trades'] for m in folds)))
     ranking.sort(key=lambda x:(x['mean_return'],x['worst_return']),reverse=True)
     selected=next((r for r in ranking if r['qualified']),None)
-    report=dict(version='technical-engine-1.0',symbol=symbol,interval_minutes=interval,rows=len(raw),development_rows=cut,final_rows_reserved=len(raw)-cut,folds=[dict(start_timestamp=int(dev.timestamp.iloc[a]),end_timestamp=int(dev.timestamp.iloc[b-1])) for a,b in zip(edges[:-1],edges[1:])],rules=RULES,risk=asdict(risk),candidates=ranking,selected=selected,live_enabled=False,status='NO_QUALIFIED_STRATEGY',notes=['Rules are research hypotheses, not best-strategy claims.','Development history reused; obtain fresh future paper results.','Final 20% excluded from indicator computation and selection unless candidate qualifies.','Single position; next-open execution, conservative same-bar stop priority, close-updated trailing effective next candle.','Fees 0.1% and slippage 0.05% per side; no order book, exchange precision or minimum order model.','No machine learning training or live orders in this version.'])
+    report=dict(version='technical-engine-1.1',symbol=symbol,interval_minutes=interval,rows=len(raw),development_rows=cut,final_rows_reserved=len(raw)-cut,folds=[dict(start_timestamp=int(dev.timestamp.iloc[a]),end_timestamp=int(dev.timestamp.iloc[b-1])) for a,b in zip(edges[:-1],edges[1:])],rules=RULES,risk=asdict(risk),candidates=ranking,selected=selected,live_enabled=False,status='NO_QUALIFIED_STRATEGY',notes=['Rules are research hypotheses, not best-strategy claims.','Development history reused; obtain fresh future paper results.','Final 20% excluded from indicator computation and selection unless candidate qualifies.','Single position; next-open execution, conservative same-bar stop priority, close-updated trailing effective next candle.','Fees 0.1% and slippage 0.05% per side; no order book, exchange precision or minimum order model.','No machine learning training or live orders in this version.'])
     if selected:
         ff=indicators(raw);ss=signals(raw,ff)[selected['strategy']];setting=ExitSettings(**selected['settings'])
         result=simulate_trailing(raw.iloc[cut:],ff.iloc[cut:],ss[cut:],setting,risk,True)
@@ -101,7 +105,7 @@ def run(csv,output,symbol='ICNTUSDT',interval=15):
     pd.DataFrame([dict(strategy=r['strategy'],**r['settings'],mean_return=r['mean_return'],worst_return=r['worst_return'],trades=r['total_trades'],qualified=r['qualified']) for r in ranking]).to_csv(out/'comparison.csv',index=False)
     (out/'report.json').write_text(json.dumps(report,indent=2,allow_nan=False))
     rows=''.join('<tr>'+''.join('<td>'+html.escape(str(v))+'</td>' for v in (r['strategy'],f"{100*r['mean_return']:.2f}%",f"{100*r['worst_return']:.2f}%",r['total_trades'],r['qualified'],r['settings']))+'</tr>' for r in ranking)
-    (out/'index.html').write_text('<!doctype html><html lang="ar" dir="rtl"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>محرك التحليل الفني</title><style>body{font:16px system-ui;background:#101827;color:white;padding:20px}td,th{padding:12px;border-bottom:1px solid #657}section{overflow:auto}</style><h1>محرك التحليل الفني — '+html.escape(symbol)+'</h1><p>'+report['status']+'</p><p>خمس استراتيجيات بدون KDJ؛ نتائج بحثية بعد التكاليف، لا ضمان للربح. آخر 20% محجوزة. الترتيب حسب متوسط التحقق.</p><input placeholder="تصفية اسم الاستراتيجية" oninput="for(let r of document.querySelectorAll(\'tbody tr\'))r.hidden=!r.textContent.toLowerCase().includes(this.value.toLowerCase())"><section><table><thead><tr><th>الاستراتيجية</th><th>متوسط العائد</th><th>أسوأ فترة</th><th>الصفقات</th><th>مقبول</th><th>إعدادات الخروج</th></tr></thead><tbody>'+rows+'</tbody></table></section></html>')
+    (out/'index.html').write_text('<!doctype html><html lang="ar" dir="rtl"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>محرك التحليل الفني</title><style>body{font:16px system-ui;background:#101827;color:white;padding:20px}td,th{padding:12px;border-bottom:1px solid #657}section{overflow:auto}</style><h1>محرك التحليل الفني — '+html.escape(symbol)+'</h1><p>'+report['status']+'</p><p>تسع استراتيجيات بدون KDJ؛ نتائج بحثية بعد التكاليف، لا ضمان للربح. آخر 20% محجوزة. الترتيب حسب متوسط التحقق.</p><input placeholder="تصفية اسم الاستراتيجية" oninput="for(let r of document.querySelectorAll(\'tbody tr\'))r.hidden=!r.textContent.toLowerCase().includes(this.value.toLowerCase())"><section><table><thead><tr><th>الاستراتيجية</th><th>متوسط العائد</th><th>أسوأ فترة</th><th>الصفقات</th><th>مقبول</th><th>إعدادات الخروج</th></tr></thead><tbody>'+rows+'</tbody></table></section></html>')
     print(json.dumps(dict(status=report['status'],candidates=len(ranking),best=best),indent=2));return report
 
 if __name__=='__main__':

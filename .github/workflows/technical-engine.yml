@@ -13,7 +13,7 @@ on:
         description: '0 = stored dataset; 11..730 = fresh Bybit candles'
   push:
     branches: [main]
-    paths: ['technical_engine.py', 'execution.py', 'tests/test_technical_engine.py', '.github/workflows/technical-engine.yml']
+    paths: ['technical_engine.py', 'additional_indicators.py', 'execution.py', 'tests/test_technical_engine.py', '.github/workflows/technical-engine.yml']
 permissions:
   contents: read
 concurrency:
