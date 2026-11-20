@@ -4,42 +4,75 @@ on:
     inputs:
       source:
         type: choice
-        options: [demo, spot]
-        default: demo
-        description: 'Synthetic smoke data or real spot data'
+        options: [spot, demo]
+        default: spot
+        description: 'spot = real historical data; demo = synthetic smoke data'
       symbol:
         type: choice
-        options: [ICNTUSDT, BTCUSDT, ETHUSDT, SOLUSDT]
-        default: ICNTUSDT
-        description: Spot symbol
+        options: [ALL, BTCUSDT, ETHUSDT, SOLUSDT, XRPUSDT, ADAUSDT, DOGEUSDT, LINKUSDT, ICNTUSDT]
+        default: ALL
+        description: 'ALL runs the eight spot symbols as separate jobs'
       mode:
         type: choice
-        options: [rules, ml, all]
-        default: rules
+        options: [all, rules, ml]
+        default: all
         description: Research mode
       interval:
         type: choice
         options: ['15', '60', '240', D]
-        default: '60'
+        default: '15'
         description: Candle interval
       days:
         type: string
-        default: '180'
+        default: '365'
         description: History days (1..1460)
 permissions:
   contents: read
+env:
+  SOURCE: ${{ inputs.source }}
+  SYMBOL: ${{ inputs.symbol }}
+  MODE: ${{ inputs.mode }}
+  INTERVAL: ${{ inputs.interval }}
+  DAYS: ${{ inputs.days }}
 jobs:
+  prepare:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    outputs:
+      matrix: ${{ steps.matrix.outputs.matrix }}
+    steps:
+      - name: Validate inputs and select symbols
+        id: matrix
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, os
+          symbols = ["BTCUSDT", "ETHUSDT", "SOLUSDT", "XRPUSDT", "ADAUSDT", "DOGEUSDT", "LINKUSDT", "ICNTUSDT"]
+          selected = os.environ["SYMBOL"]
+          days = os.environ["DAYS"]
+          if selected != "ALL" and selected not in symbols:
+              raise SystemExit("Unsupported spot symbol")
+          if not days.isascii() or not days.isdecimal() or not 1 <= int(days) <= 1460:
+              raise SystemExit("History days must be an integer between 1 and 1460")
+          for key, allowed in {"SOURCE": ["spot", "demo"], "MODE": ["all", "rules", "ml"], "INTERVAL": ["15", "60", "240", "D"]}.items():
+              if os.environ[key] not in allowed:
+                  raise SystemExit("Invalid " + key)
+          matrix = {"symbol": symbols if selected == "ALL" else [selected]}
+          with open(os.environ["GITHUB_OUTPUT"], "a") as handle:
+              handle.write("matrix=" + json.dumps(matrix) + "\n")
+          PY
   research:
+    needs: prepare
     runs-on: ubuntu-24.04
     timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix: ${{ fromJSON(needs.prepare.outputs.matrix) }}
     env:
       OMP_NUM_THREADS: '2'
       OPENBLAS_NUM_THREADS: '2'
-      SOURCE: ${{ inputs.source }}
-      SYMBOL: ${{ inputs.symbol }}
-      MODE: ${{ inputs.mode }}
-      INTERVAL: ${{ inputs.interval }}
-      DAYS: ${{ inputs.days }}
+      SYMBOL: ${{ matrix.symbol }}
     steps:
       - uses: actions/checkout@v6
         with:
@@ -51,16 +84,15 @@ jobs:
       - name: Research only
         shell: bash
         run: |
-          if ! [[ "$DAYS" =~ ^[0-9]+$ ]] || (( DAYS < 1 || DAYS > 1460 )); then exit 1; fi
           if [[ "$SOURCE" == demo ]]; then
-            python main.py --demo --fast --mode "$MODE"
+            python main.py --demo --symbol "$SYMBOL" --fast --mode "$MODE" --out "results/$SYMBOL"
           else
-            python main.py --symbol "$SYMBOL" --interval "$INTERVAL" --days "$DAYS" --fast --mode "$MODE"
+            python main.py --symbol "$SYMBOL" --interval "$INTERVAL" --days "$DAYS" --fast --mode "$MODE" --out "results/$SYMBOL"
           fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: bybit-research-${{ inputs.source }}-${{ github.run_id }}
+          name: bybit-research-${{ inputs.source }}-${{ matrix.symbol }}-${{ github.run_id }}
           path: results/
           retention-days: 14
           if-no-files-found: warn
