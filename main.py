@@ -8,6 +8,8 @@
 """
 import argparse
 import os
+import json
+import hashlib
 import warnings
 
 import matplotlib
@@ -47,12 +49,39 @@ def main():
     ap.add_argument("--days", type=int, default=1095)
     ap.add_argument("--mode", choices=["rules", "ml", "all"], default="all")
     ap.add_argument("--fast", action="store_true", help="شبكة مخارج مصغرة")
+    ap.add_argument("--csv", help="Local OHLCV CSV with timestamp in milliseconds; no download")
     ap.add_argument("--demo", action="store_true", help="بيانات اصطناعية بدون إنترنت")
     ap.add_argument("--out", default="results")
     a = ap.parse_args()
     os.makedirs(a.out, exist_ok=True)
 
-    raw = synthetic_ohlcv() if a.demo else fetch_klines(a.symbol, a.interval, a.days)
+    if a.csv and a.demo:
+        ap.error("Choose --csv or --demo")
+    if a.csv:
+        raw = pd.read_csv(a.csv)
+        required = ["timestamp", "open", "high", "low", "close", "volume"]
+        if not set(required).issubset(raw.columns):
+            raise ValueError("CSV missing OHLCV columns")
+        raw = raw[required].apply(pd.to_numeric, errors="raise").sort_values("timestamp").reset_index(drop=True)
+        if len(raw) < 1500 or not np.isfinite(raw.to_numpy()).all():
+            raise ValueError("Insufficient or nonfinite data")
+        step = int(a.interval) * 60000 if a.interval != "D" else 86400000
+        if raw.timestamp.duplicated().any() or not (raw.timestamp.diff().dropna() == step).all():
+            raise ValueError("Duplicate timestamps, gaps or wrong interval")
+        if (raw[["open", "high", "low", "close"]] <= 0).any().any() or (raw.volume < 0).any():
+            raise ValueError("Invalid price or volume")
+        if ((raw.high < raw[["open", "close", "low"]].max(axis=1)) | (raw.low > raw[["open", "close", "high"]].min(axis=1))).any():
+            raise ValueError("Invalid candle range")
+        raw = raw[raw.timestamp + step <= pd.Timestamp.now(tz="UTC").timestamp() * 1000].copy()
+        raw.index = pd.to_datetime(raw.pop("timestamp"), unit="ms", utc=True)
+        raw.index.name = "time"
+        if len(raw) < 1500:
+            raise ValueError("Insufficient closed candles")
+    else:
+        raw = synthetic_ohlcv() if a.demo else fetch_klines(a.symbol, a.interval, a.days)
+    metadata = dict(symbol=a.symbol, interval=a.interval, source="uploaded_csv" if a.csv else ("synthetic" if a.demo else "bybit_spot"), synthetic=a.demo, rows=len(raw), start=str(raw.index[0]), end=str(raw.index[-1]), mode=a.mode, csv_sha256=hashlib.sha256(open(a.csv,"rb").read()).hexdigest() if a.csv else None, research_only=True, live_enabled=False, notes=["Historical data may have been examined in previous experiments; results are exploratory, not a fresh independent test.","ML parameter ranking reuses walk-forward results for selection; fresh future paper data required."])
+    with open(f"{a.out}/run_metadata.json", "w") as handle:
+        json.dump(metadata, handle, indent=2)
     d = add_all(raw).iloc[200:]
     print(f"[main] {len(d)} شمعة من {d.index[0]} إلى {d.index[-1]}")
 
