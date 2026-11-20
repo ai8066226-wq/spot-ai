@@ -1,0 +1,211 @@
+{
+  "version": "kdj-gap-shrink-1",
+  "symbol": "ICNTUSDT",
+  "parameters": [
+    9,
+    3,
+    3
+  ],
+  "entry": "Closed-candle upward J/K crossover; buy following open",
+  "exit": "First closed candle with J-K below the running peak since entry signal; sell following open",
+  "safety": "Fixed ATR stop, daily and drawdown risk gates retained; no target and no maximum holding duration",
+  "risk": {
+    "fee": 0.001,
+    "slippage": 0.0005,
+    "risk_per_trade": 0.005,
+    "max_allocation": 0.25,
+    "stop_atr": 1.5,
+    "reward_risk": 2.5,
+    "min_stop": 0.004,
+    "max_stop": 0.04,
+    "max_hold": 16,
+    "daily_loss": 0.02,
+    "max_drawdown": 0.1,
+    "cooldown": 2
+  },
+  "ignored_risk_fields": [
+    "reward_risk",
+    "max_hold"
+  ],
+  "development_rows": 13744,
+  "final_rows_excluded": 3436,
+  "folds": [
+    {
+      "fold": 1,
+      "first_timestamp": 1785278700000,
+      "last_timestamp": 1787545800000,
+      "metrics": {
+        "net_return": -0.0993043265072473,
+        "max_drawdown": 0.10091116512456233,
+        "trades": 142,
+        "win_rate": 0.2887323943661972,
+        "profit_factor": 0.4421482552360794,
+        "total_profit": 0.0787077124248385,
+        "total_loss": 0.17801203893208517,
+        "average_win": 0.009313802874528734,
+        "average_loss": 0.008496749681144123,
+        "payoff_ratio": 1.0961606760286,
+        "expectancy_per_trade": -0.0006993262430087793,
+        "exposure": 0.17189360857483127,
+        "drawdown_halt": true
+      },
+      "cost_stress": {
+        "net_return": -0.10022085623031907,
+        "max_drawdown": 0.1003772875909611,
+        "trades": 88,
+        "win_rate": 0.25,
+        "profit_factor": 0.30259639694684987,
+        "total_profit": 0.043484819782199674,
+        "total_loss": 0.14370567601251924,
+        "average_win": 0.010781205393401019,
+        "average_loss": 0.01175018875101486,
+        "payoff_ratio": 0.9175346559832794,
+        "expectancy_per_trade": -0.0011388733662536315,
+        "exposure": 0.10678840809845176,
+        "drawdown_halt": true
+      },
+      "previous_fixed_exit": {
+        "net_return": -0.1003619570444857,
+        "max_drawdown": 0.10078691375646165,
+        "trades": 127,
+        "win_rate": 0.28346456692913385,
+        "profit_factor": 0.6486064014287957,
+        "total_profit": 0.1852492705150534,
+        "total_loss": 0.28561122755953894,
+        "average_win": 0.02412259254870127,
+        "average_loss": 0.015399446662459735,
+        "payoff_ratio": 1.566458397982996,
+        "expectancy_per_trade": -0.0007902516302715398,
+        "exposure": 0.4160381103612545,
+        "drawdown_halt": true
+      },
+      "qualified": false,
+      "exit_reasons": {
+        "drawdown_halt_next_open": 1,
+        "gap_shrink_next_open": 127,
+        "stop": 14
+      }
+    },
+    {
+      "fold": 2,
+      "first_timestamp": 1787546700000,
+      "last_timestamp": 1789813800000,
+      "metrics": {
+        "net_return": -0.1001895661789971,
+        "max_drawdown": 0.10055146910817314,
+        "trades": 129,
+        "win_rate": 0.23255813953488372,
+        "profit_factor": 0.3612823482403775,
+        "total_profit": 0.05667092750390296,
+        "total_loss": 0.15686049368289984,
+        "average_win": 0.007951224676837077,
+        "average_loss": 0.006694894203850972,
+        "payoff_ratio": 1.1876550151103882,
+        "expectancy_per_trade": -0.0007766633037131542,
+        "exposure": 0.17546645494243748,
+        "drawdown_halt": true
+      },
+      "cost_stress": {
+        "net_return": -0.09982238752882511,
+        "max_drawdown": 0.10086731860204179,
+        "trades": 64,
+        "win_rate": 0.140625,
+        "profit_factor": 0.15655739634211163,
+        "total_profit": 0.018528745193081314,
+        "total_loss": 0.11835113272190612,
+        "average_win": 0.008491221189478908,
+        "average_loss": 0.00902458059326058,
+        "payoff_ratio": 0.940899258611533,
+        "expectancy_per_trade": -0.0015597248051378875,
+        "exposure": 0.0833664152441445,
+        "drawdown_halt": true
+      },
+      "previous_fixed_exit": {
+        "net_return": -0.09794501607316353,
+        "max_drawdown": 0.10036296707679615,
+        "trades": 115,
+        "win_rate": 0.3130434782608696,
+        "profit_factor": 0.4954989225267334,
+        "total_profit": 0.09619731671175216,
+        "total_loss": 0.19414233278491555,
+        "average_win": 0.011094375372932973,
+        "average_loss": 0.010338421515937815,
+        "payoff_ratio": 1.0731208198301618,
+        "expectancy_per_trade": -0.0008516957919405512,
+        "exposure": 0.36681222707423583,
+        "drawdown_halt": true
+      },
+      "qualified": false,
+      "exit_reasons": {
+        "drawdown_halt_next_open": 1,
+        "gap_shrink_next_open": 106,
+        "stop": 22
+      }
+    },
+    {
+      "fold": 3,
+      "first_timestamp": 1789814700000,
+      "last_timestamp": 1792081800000,
+      "metrics": {
+        "net_return": -0.10062422369370949,
+        "max_drawdown": 0.10062422369370949,
+        "trades": 135,
+        "win_rate": 0.26666666666666666,
+        "profit_factor": 0.3065459525916341,
+        "total_profit": 0.044481604255194235,
+        "total_loss": 0.145105827948903,
+        "average_win": 0.005168887096303235,
+        "average_loss": 0.006157049137900059,
+        "payoff_ratio": 0.8395072023196734,
+        "expectancy_per_trade": -0.0007453646199533983,
+        "exposure": 0.16712981341802302,
+        "drawdown_halt": true
+      },
+      "cost_stress": {
+        "net_return": -0.10069466735038746,
+        "max_drawdown": 0.10069466735038746,
+        "trades": 69,
+        "win_rate": 0.17391304347826086,
+        "profit_factor": 0.09730710310756205,
+        "total_profit": 0.010854529167092092,
+        "total_loss": 0.11154919651747963,
+        "average_win": 0.003802591930513854,
+        "average_loss": 0.008251973256834586,
+        "payoff_ratio": 0.46081001624240703,
+        "expectancy_per_trade": -0.0014593430050780802,
+        "exposure": 0.08416038110361254,
+        "drawdown_halt": true
+      },
+      "previous_fixed_exit": {
+        "net_return": -0.0648506009785823,
+        "max_drawdown": 0.08719062529918176,
+        "trades": 147,
+        "win_rate": 0.3673469387755102,
+        "profit_factor": 0.7238971574544528,
+        "total_profit": 0.170027824685887,
+        "total_loss": 0.23487842566447026,
+        "average_win": 0.013661291037119007,
+        "average_loss": 0.010665841136742862,
+        "payoff_ratio": 1.2808451637308838,
+        "expectancy_per_trade": -0.00044116055087471597,
+        "exposure": 0.5180627233028979,
+        "drawdown_halt": false
+      },
+      "qualified": false,
+      "exit_reasons": {
+        "drawdown_halt_next_open": 1,
+        "gap_shrink_next_open": 115,
+        "stop": 19
+      }
+    }
+  ],
+  "status": "REJECTED_KEEP_CASH",
+  "live_enabled": false,
+  "notes": [
+    "Peak is updated from past and current closed candles only, never the future maximum.",
+    "Peak starts at the confirmed entry-signal gap; shrink on entry candle can schedule next-open exit.",
+    "Equality does not exit. Numerical tolerance is 1e-10 indicator units.",
+    "Prior fixed-exit baseline excludes entries lacking a full maximum horizon; gap exit has no time horizon and closes at evaluation end.",
+    "Initial position is flat in each evaluation window. No final-period evaluation or production activation."
+  ]
+}
