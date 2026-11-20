@@ -49,3 +49,7 @@ python run_research.py
 ## تجربة توقع العائد الصافي
 
 expected_return.py يقارن نموذجين بسيطين بمتوسط ثابت، مع تقدير Q10 للخسارة. اقرأ reports/ICNT_EXPECTED_RETURN_AR.md. المهمة Evaluate ICNT Expected Return تحفظ نموذجًا بحثيًا وتقريرًا؛ النتيجة الحالية مرفوضة، ولا يوجد تنفيذ تداول أو تبديل لإعدادات المحرك الافتراضية.
+
+## مختبر الأهداف والوقف المتحرك
+
+trailing_lab.py ومهمة KDJ Trailing Exit Lab يختبران أهداف ربح ووقفًا متحركًا بالنسبة أو ATR، مع واجهة تقرير عربية تعمل دون إنترنت في lab.html داخل Artifacts. التفاصيل في reports/TRAILING_LAB_AR.md. النتيجة الحالية لا تحتوي إعدادًا مؤهلًا للتداول.
