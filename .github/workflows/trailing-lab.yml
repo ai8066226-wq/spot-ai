@@ -7,6 +7,11 @@ on:
         type: choice
         options: [ICNTUSDT, BTCUSDT]
         default: ICNTUSDT
+      entry_rule:
+        description: 'Entry: KDJ crossover or continuous MACD DIF > DEA'
+        type: choice
+        options: [kdj_cross, macd_above]
+        default: kdj_cross
       targets:
         description: 'Profit targets in percent, comma-separated'
         type: string
@@ -47,6 +52,7 @@ jobs:
       OMP_NUM_THREADS: '2'
       OPENBLAS_NUM_THREADS: '2'
       LAB_SYMBOL: ${{ inputs.symbol || 'ICNTUSDT' }}
+      LAB_ENTRY: ${{ inputs.entry_rule || 'kdj_cross' }}
       LAB_TARGETS: ${{ inputs.targets || '0.5,1,2,3,5' }}
       LAB_INITIAL_STOPS: ${{ inputs.initial_stops || '0.5,1,2' }}
       LAB_TRAILING_PERCENT: ${{ inputs.trailing_percent || '0.3,0.5,1,2' }}
@@ -67,7 +73,7 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Compare exit settings
         run: |
-          python trailing_lab.py --symbol "$LAB_SYMBOL" --targets "$LAB_TARGETS" --initial-stops "$LAB_INITIAL_STOPS" --trailing-percent "$LAB_TRAILING_PERCENT" --trailing-atr "$LAB_TRAILING_ATR" --activations "$LAB_ACTIVATIONS"
+          python trailing_lab.py --entry "$LAB_ENTRY" --symbol "$LAB_SYMBOL" --targets "$LAB_TARGETS" --initial-stops "$LAB_INITIAL_STOPS" --trailing-percent "$LAB_TRAILING_PERCENT" --trailing-atr "$LAB_TRAILING_ATR" --activations "$LAB_ACTIVATIONS"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
