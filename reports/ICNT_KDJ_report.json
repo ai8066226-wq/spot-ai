@@ -1,0 +1,135 @@
+{
+  "symbol": "ICNTUSDT",
+  "version": "kdj-crossover-1",
+  "parameters": [
+    9,
+    3,
+    3
+  ],
+  "entry": "J crosses K upwards on closed candle; execute at following open",
+  "exit": "Original risk engine only: 1.5 ATR stop, 2.5R target, max 16 candles; no crossover exit in this experiment",
+  "equivalent_to_k_cross_d": true,
+  "development_rows": 13744,
+  "final_rows_excluded": 3436,
+  "folds": [
+    {
+      "fold": 1,
+      "first_timestamp": 1785278700000,
+      "last_timestamp": 1787545800000,
+      "crossovers": 223,
+      "metrics": {
+        "net_return": -0.1003619570444857,
+        "max_drawdown": 0.10078691375646165,
+        "trades": 127,
+        "win_rate": 0.28346456692913385,
+        "profit_factor": 0.6486064014287957,
+        "total_profit": 0.1852492705150534,
+        "total_loss": 0.28561122755953894,
+        "average_win": 0.02412259254870127,
+        "average_loss": 0.015399446662459735,
+        "payoff_ratio": 1.566458397982996,
+        "expectancy_per_trade": -0.0007902516302715398,
+        "exposure": 0.4160381103612545,
+        "drawdown_halt": true
+      },
+      "cost_stress": {
+        "net_return": -0.10078435206604641,
+        "max_drawdown": 0.10110986600243599,
+        "trades": 94,
+        "win_rate": 0.3191489361702128,
+        "profit_factor": 0.5820495296197268,
+        "total_profit": 0.14035511112045929,
+        "total_loss": 0.2411394631865061,
+        "average_win": 0.024034654899306437,
+        "average_loss": 0.02021121114427969,
+        "payoff_ratio": 1.1891744006696445,
+        "expectancy_per_trade": -0.0010721739581494338,
+        "exposure": 0.29773719730051607,
+        "drawdown_halt": true
+      },
+      "qualified": false
+    },
+    {
+      "fold": 2,
+      "first_timestamp": 1787546700000,
+      "last_timestamp": 1789813800000,
+      "crossovers": 221,
+      "metrics": {
+        "net_return": -0.09794501607316353,
+        "max_drawdown": 0.10036296707679615,
+        "trades": 115,
+        "win_rate": 0.3130434782608696,
+        "profit_factor": 0.4954989225267334,
+        "total_profit": 0.09619731671175216,
+        "total_loss": 0.19414233278491555,
+        "average_win": 0.011094375372932973,
+        "average_loss": 0.010338421515937815,
+        "payoff_ratio": 1.0731208198301618,
+        "expectancy_per_trade": -0.0008516957919405512,
+        "exposure": 0.36681222707423583,
+        "drawdown_halt": true
+      },
+      "cost_stress": {
+        "net_return": -0.09944259090946483,
+        "max_drawdown": 0.10087499174211956,
+        "trades": 78,
+        "win_rate": 0.28205128205128205,
+        "profit_factor": 0.3631435150660096,
+        "total_profit": 0.05670340628450554,
+        "total_loss": 0.15614599719397002,
+        "average_win": 0.01099923069302666,
+        "average_loss": 0.01194391233970682,
+        "payoff_ratio": 0.9209068503006657,
+        "expectancy_per_trade": -0.001274905011659801,
+        "exposure": 0.22548630408892417,
+        "drawdown_halt": true
+      },
+      "qualified": false
+    },
+    {
+      "fold": 3,
+      "first_timestamp": 1789814700000,
+      "last_timestamp": 1792081800000,
+      "crossovers": 207,
+      "metrics": {
+        "net_return": -0.0648506009785823,
+        "max_drawdown": 0.08719062529918176,
+        "trades": 147,
+        "win_rate": 0.3673469387755102,
+        "profit_factor": 0.7238971574544528,
+        "total_profit": 0.170027824685887,
+        "total_loss": 0.23487842566447026,
+        "average_win": 0.013661291037119007,
+        "average_loss": 0.010665841136742862,
+        "payoff_ratio": 1.2808451637308838,
+        "expectancy_per_trade": -0.00044116055087471597,
+        "exposure": 0.5180627233028979,
+        "drawdown_halt": false
+      },
+      "cost_stress": {
+        "net_return": -0.09982867807751727,
+        "max_drawdown": 0.10073362899157934,
+        "trades": 88,
+        "win_rate": 0.32954545454545453,
+        "profit_factor": 0.4145653499695497,
+        "total_profit": 0.07069193950520558,
+        "total_loss": 0.17052061758272366,
+        "average_win": 0.0102414381248207,
+        "average_loss": 0.012183767735155768,
+        "payoff_ratio": 0.8405805451518453,
+        "expectancy_per_trade": -0.0011344167963354328,
+        "exposure": 0.3017070265978563,
+        "drawdown_halt": true
+      },
+      "qualified": false
+    }
+  ],
+  "status": "REJECTED_KEEP_CASH",
+  "live_enabled": false,
+  "notes": [
+    "J=3K-2D implies J-K=2(K-D): the two upward crossovers coincide without clipping J.",
+    "K,D recursively start at 50; flat rolling ranges use RSV=50. Platforms may initialize differently.",
+    "No parameter search and no final-period evaluation.",
+    "Risk budget and assumed fees/slippage remain unchanged."
+  ]
+}
