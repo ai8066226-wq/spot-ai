@@ -9,3 +9,8 @@ class ConfigTests(unittest.TestCase):
             with self.assertRaises(ValueError): config({'RESEARCH_FEE':value})
     def test_bounds(self):
         with self.assertRaises(ValueError): config({'RESEARCH_DAYS':'9999'})
+
+    def test_csv_path(self):
+        for path in ('/etc/passwd','../input.csv','data/../../input.csv','other/file.csv'):
+            with self.assertRaises(ValueError): config({'RESEARCH_SOURCE':'csv','RESEARCH_DATA_FILE':path})
+        self.assertEqual(config({'RESEARCH_SOURCE':'csv'})['data_file'],'data/candles.csv')

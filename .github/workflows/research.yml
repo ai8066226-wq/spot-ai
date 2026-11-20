@@ -3,12 +3,18 @@ on:
   workflow_dispatch:
     inputs:
       source:
-        description: 'synthetic = software test; bybit = actual market data'
+        description: 'synthetic=test; bybit=API; csv=uploaded candles'
         type: choice
         options:
           - synthetic
           - bybit
+          - csv
         default: synthetic
+        required: true
+      data_file:
+        description: 'For csv source: repository path under data/'
+        type: string
+        default: data/candles.csv
         required: true
       symbol:
         description: 'Spot symbol, e.g. BTCUSDT'
@@ -49,6 +55,7 @@ jobs:
       OMP_NUM_THREADS: '2'
       OPENBLAS_NUM_THREADS: '2'
       RESEARCH_SOURCE: ${{ inputs.source }}
+      RESEARCH_DATA_FILE: ${{ inputs.data_file }}
       RESEARCH_SYMBOL: ${{ inputs.symbol }}
       RESEARCH_INTERVAL: ${{ inputs.interval }}
       RESEARCH_DAYS: ${{ inputs.days }}
