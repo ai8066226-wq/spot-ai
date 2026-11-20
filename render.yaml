@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: bybit-spot-paper
+    runtime: docker
+    plan: free
+    region: frankfurt
+    rootDir: mobile_backend
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /healthz
+    autoDeployTrigger: off
+    envVars:
+      - key: ENGINE_TOKEN
+        generateValue: true
+      - key: ENGINE_ENCRYPTION_SEED
+        generateValue: true
+      - key: ENGINE_DATA
+        value: /app/state
+      - key: ENABLE_REAL_TRADING
+        value: 'false'
+      - key: PAPER_ONLY
+        value: 'true'
+      - key: OMP_NUM_THREADS
+        value: '1'
+      - key: OPENBLAS_NUM_THREADS
+        value: '1'

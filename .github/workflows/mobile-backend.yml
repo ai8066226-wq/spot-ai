@@ -1,0 +1,25 @@
+name: Verify Mobile Backend
+on:
+  workflow_dispatch:
+  push:
+    paths: ['mobile_backend/**', 'render.yaml', '.github/workflows/mobile-backend.yml']
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      OMP_NUM_THREADS: '2'
+      OPENBLAS_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: pip install -r mobile_backend/requirements.txt httpx
+      - run: python -m compileall -q mobile_backend
+      - run: python -m unittest discover -s tests -v
+        working-directory: mobile_backend
