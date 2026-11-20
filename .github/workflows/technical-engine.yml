@@ -1,0 +1,48 @@
+name: Technical Strategy Engine
+on:
+  workflow_dispatch:
+    inputs:
+      symbol:
+        type: choice
+        options: [ICNTUSDT, BTCUSDT]
+        default: ICNTUSDT
+        description: Spot dataset
+      fetch_days:
+        type: string
+        default: '0'
+        description: '0 = stored dataset; 11..730 = fresh Bybit candles'
+  push:
+    branches: [main]
+    paths: ['technical_engine.py', 'execution.py', 'tests/test_technical_engine.py', '.github/workflows/technical-engine.yml']
+permissions:
+  contents: read
+concurrency:
+  group: technical-engine-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  research:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      OMP_NUM_THREADS: '2'
+      OPENBLAS_NUM_THREADS: '2'
+      SYMBOL: ${{ inputs.symbol || 'ICNTUSDT' }}
+      FETCH_DAYS: ${{ inputs.fetch_days || '0' }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install --only-binary=:all: -r requirements.txt
+      - run: python -m unittest discover -s tests -v
+      - run: python technical_engine.py --symbol "$SYMBOL" --fetch-days "$FETCH_DAYS"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: technical-engine-${{ github.run_id }}
+          path: technical_outputs/
+          retention-days: 14
+          if-no-files-found: warn
