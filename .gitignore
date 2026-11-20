@@ -5,3 +5,5 @@ outputs/
 *.csv
 
 tuning_outputs/
+
+diagnostic_outputs/
