@@ -1,0 +1,60 @@
+{
+  "venue": "Binance",
+  "market": "spot",
+  "symbol": "BTCUSDT",
+  "interval_minutes": 15,
+  "archive_verification": "User-uploaded archive filenames and contents checked; official CHECKSUM files not supplied.",
+  "original_timestamp_unit": "microseconds",
+  "converted_timestamp_unit": "milliseconds",
+  "archives": [
+    {
+      "file": "BTCUSDT-15m-2026-05.zip",
+      "sha256": "1df53032797db1ca7ab680d9aa726b6cd591e0b7ae0e13d6b5e1bbfd1bd04b8c",
+      "rows": 2976,
+      "first_utc": "2026-05-01T00:00:00+00:00",
+      "last_utc": "2026-05-31T23:45:00+00:00"
+    },
+    {
+      "file": "BTCUSDT-15m-2026-06.zip",
+      "sha256": "1380a9c33e1025bdd4bbe690fd1bb67e37ca8b57d50dfc2993ba36d9dc4a1c7d",
+      "rows": 2880,
+      "first_utc": "2026-06-01T00:00:00+00:00",
+      "last_utc": "2026-06-30T23:45:00+00:00"
+    },
+    {
+      "file": "BTCUSDT-15m-2026-07.zip",
+      "sha256": "b043676622c6abcf82eaa07d9c149028aead438636fba1ef97cd88bb6ce1bab4",
+      "rows": 2976,
+      "first_utc": "2026-07-01T00:00:00+00:00",
+      "last_utc": "2026-07-31T23:45:00+00:00"
+    },
+    {
+      "file": "BTCUSDT-15m-2026-08.zip",
+      "sha256": "c46dee1dac1460f9b0067175e282c98fd2b2e7506ae4d35f0a644d3c07b174fb",
+      "rows": 2976,
+      "first_utc": "2026-08-01T00:00:00+00:00",
+      "last_utc": "2026-08-31T23:45:00+00:00"
+    },
+    {
+      "file": "BTCUSDT-15m-2026-09.zip",
+      "sha256": "0d452e884c1bdd20bbb414b8feab30753e8e9ebef3e8c821d8a54eef48859cd0",
+      "rows": 2880,
+      "first_utc": "2026-09-01T00:00:00+00:00",
+      "last_utc": "2026-09-30T23:45:00+00:00"
+    },
+    {
+      "file": "BTCUSDT-15m-2026-10.zip",
+      "sha256": "c361adf2edd04bd8231226c4bbc0db2b4eed7bd9de7ff17db07f275bc8c49846",
+      "rows": 2976,
+      "first_utc": "2026-10-01T00:00:00+00:00",
+      "last_utc": "2026-10-31T23:45:00+00:00"
+    }
+  ],
+  "total_uploaded_rows": 17664,
+  "selected_rows": 17664,
+  "selected_first_utc": "2026-05-01T00:00:00+00:00",
+  "selected_last_utc": "2026-10-31T23:45:00+00:00",
+  "missing_months": [],
+  "selection": "All six months: May through October, one continuous segment.",
+  "dataset_sha256": "c6c06957f9592950ce20547a7fa86a4ae0a6137b66e4df44b098392d5ece0a6b"
+}
